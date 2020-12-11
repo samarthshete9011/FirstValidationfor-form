@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Multiplication , Addition , Subtraction And Division Of Two Numbers </title>
+    <script src="Javacode.js"></script>
+    <style>
+        body {
+            margin: 30px;
+            box-sizing: border-box;
+        }
+
+        input[type=button],
+        input[type=submit],
+        input[type=reset] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        Enter Number 1 : <input type="text" id="firstNumber" /><br>
+        Enter Number 2: <input type="text" id="secondNumber" /><br>
+        <input type="button" onClick="multiplyBy()" Value="Multiply" />
+        <input type="button" onClick="divideBy()" Value="Divide" />
+        <input type="button" onClick="additionBy()" Value="Addition" />
+        <input type="button" onClick="subtractionBy()" Value="Subtraction" />
+    </form>
+    <p>The Result is : <br>
+        <span id="result"></span>
+    </p>
+</body>
+
+</html>

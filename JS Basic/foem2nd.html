@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>2nd form</title>
+    </head>
+        <body>
+            <form name="regform">
+                <label for="fname">First Name :-</label>
+                <input type="text" id="st" name="fname">
+                <span id="spanone"></span>
+                <!-- <label for="lname">Last Name :-</label>
+                <input type="text" id="nd" name="lname">
+                <label for="email">Gmail :-</label>
+                <input type="email" id="rd" name="email"> -->
+                <input type="submit" name="submit" value="submit" onclick="validation()">
+            </form>
+                <script>
+                 function validation(){
+                     console.log("validation")
+                     var Auser=document.forms["regform"]["fname"].value
+                     firstnamevalidation(Auser)
+                     var Buser=document.forms["regform"]["lname"].value
+                     var Cuser=document.forms["regform"]["email"].value
+                     return false
+                 }
+                     function firstnamevalidation(Auser){
+                        var regex = /^[A-Za-z]+$/;
+                     var regex1=/^[0-9]+$/;
+                        if( Auser == ""){
+                            document.getElementById("spanone").innerHTML="Please enter your valid name"
+                            return false
+                        }
+                     }
+                                                         
+                </script>
+            
+        </body>
+   
+</html>

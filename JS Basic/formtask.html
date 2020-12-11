@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Form Submition </title>
+        <body>
+            <form>
+                <label for="fname">First Name </label>
+                <input type="text" name="fname"><br>
+                <label for="lname">Last Name</label>
+                <input type="text" name="lname"><br>
+                <label for="type of stream">Type Of Stream</label><br>
+                <select id="type of stream" name="type of stream"> <br>
+                    <option value="science">Science</option><br>
+                    <option value="commerce">Commerce</option><br>
+                    <option value="art">Art</option><br>
+                  </select><br>
+                   <label for="enlish">English:- </label>
+                  <input type="text" id="eng" name="english" placeholder="English"value=""><br>
+                  <label for="maths"> Maths:-</label>
+                  <input type="text" id="maths" name="maths"  placeholder="Maths" value=""><br>
+                  <label for="bio">Biology:-</label>
+                  <input type="text" id="bio" name="bio" placeholder="Biology" value=""><br>
+                  <label for="phy">Physics:-</label>
+                  <input type="text" id="phy" name="phy" placeholder="Physics"  value=""><br>
+                  <label for="it">IT:-</label>
+                  <input type="text" id="it" name="it"  placeholder="It" value=""><br>
+                  <input type="button" value="showpercentage" onclick="calcy()"><br>
+                  <div class="showdata">
+                      <p id="showdata"></p>
+                      <p id="data3"></p>
+                      <p id="showdata2"></p>
+                  </div>
+            </form>
+            <script>
+             function calcy() {
+                  var eng=document.getElementById("eng").value
+                  console.log(eng)  
+           var maths=document.getElementById("maths").value
+                  console.log(maths)
+                  var bio=document.getElementById("bio").value
+                   console.log(bio) 
+                   var phy=document.getElementById("phy").value
+                    console.log(phy)
+                    var it=document.getElementById("it").value
+                   console.log(it)
+                   let TotalGrades = parseFloat (eng) +parseFloat(maths) + parseFloat(bio) +parseFloat(phy) +parseFloat (it)
+                   alert(TotalGrades);
+                   document.getElementById("data3").innerHTML="Your total marks are"+TotalGrades
+                   var perctages=(TotalGrades/500)*100
+                   document.getElementById("showdata2").innerHTML="Your total marks are"+perctages
+                    alert(perctages);
+                   if(perctages<= 100 && perctages>=80){
+                     document.getElementById ("showdata").innerHTML= "Your TotalGrades is A";
+                    } else if (perctages<=79 && perctages>=60){
+                     document.getElementById ("showdata").innerHTML= "Your TotalGrades is B";
+                    } else if (perctages<=59 && perctages>=40){
+                     document.getElementById ("showdata").innerHTML= "Your TotalGrades is C";
+                    }else{
+                     document.getElementById ("showdata").innerHTML= "Your TotalGrades is F";
+                    }
+              }   
+            </script>
+        </body>
+    </head>
+</html>

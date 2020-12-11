@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Form Submition </title>
+        <body>
+            <style>
+                #sam{
+                    color: red;
+                    padding: 50px;
+                }
+                #om{
+                    color: red;
+                    padding: 50px;
+                }
+                #sami{
+                    color: red;
+                    padding: 50px;
+                }
+            </style>
+            <form >
+                
+                <label for="fname">First Name :- </label>
+                <input type="text" name="fname" id="st" placeholder="First Name"><br>
+                <span id="sam"></span><br>
+                
+                <label for="lname">Last Name :-</label>
+                <input type="text" name="lname" id="nd" placeholder="Last Name" value=""><br>
+                <span id="om"></span><br>
+
+               <label for="mail">Email</label>
+                <input type="email" name="email" id="rd" placeholder="Email" value=""><br>
+                <span id="sami"></span><br>
+                
+            
+                
+                <input type="button" value="submit" name="submit" onclick="validation()"><br>
+                </form>
+                
+                <script>
+                    function validation() {
+                        console.log("validation")
+                     var user= document.getElementById("st").value;  
+                     var b= document.getElementById("nd").value; 
+                     var regex = /^[A-Za-z]+$/;
+                     var regex1=/^[0-9]+$/;
+                     var c= document.getElementById("rd").value
+                     var regex2=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                  if( user == "" ) {
+                      document.getElementById("sam").innerHTML="**Please Enter your first name**"
+                      document.getElementById("om").innerHTML="**Please Enter your last name**"
+                      document.getElementById("sami").innerHTML="**Please Enter your emaild**"
+                  }         
+                        if(regex1.test(user)==true){
+                            document.getElementById("sam").innerHTML="**Please enter only alphabets**"
+
+                        }
+                        if(regex1.test(b)==true){
+                            document.getElementById("om").innerHTML="**Please enter only alphabets**"
+                            
+                        }
+                        if(regex2.test(c)==true){
+                            document.getElementById("sami").innerHTML=""
+                          
+                        }
+                        else{
+                            document.getElementById("sami").innerHTML="**Please enter valid email address**"
+                        }  
+                 }                
+               </script>
+                    </body>
+                     </head>
+                  </html>
