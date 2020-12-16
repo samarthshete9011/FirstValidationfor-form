@@ -2,35 +2,180 @@
     <head>
         <title>2nd form</title>
     </head>
+    <style>
+        body{
+            background-image: url(https://i.pinimg.com/474x/f3/c6/18/f3c618cf36cb9b2a74f81890925bf26a.jpg)
+        }
+        label{
+            color: white;
+        }
+       #invalidfirstname,#invalidlastname,#invalidemail,#invalidgender,#invalidbranch,#invalidphone{
+           color: red;
+       }
+
+       #validfirstname,#validlastname,#validemail,#validgender,#validbranch,#validphone{
+           color:green;
+       }
+       form{
+           display:inline-block;
+           border:silver 1px solid;
+           margin-left: 40%;
+           margin-top: 6%;
+           padding-left: 30px;
+           padding-right: 30px;
+           padding-top: 20px;
+           padding-bottom: 20px;
+           background-color:black
+           
+          
+       }
+    </style>
         <body>
-            <form name="regform">
+            <form name="regform" onsubmit="return validation()">
                 <label for="fname">First Name :-</label>
-                <input type="text" id="st" name="fname">
-                <span id="spanone"></span>
-                <!-- <label for="lname">Last Name :-</label>
-                <input type="text" id="nd" name="lname">
-                <label for="email">Gmail :-</label>
-                <input type="email" id="rd" name="email"> -->
-                <input type="submit" name="submit" value="submit" onclick="validation()">
+                <input type="text"  name="fname"><br>
+
+                <span id="invalidfirstname"></span><br>
+                <span id="validfirstname"></span><br>
+
+                <label for="lname">Last Name :-</label>
+                <input type="text"  name="lname"><br>
+
+                <span id="invalidlastname"></span><br>
+                <span id="validlastname"></span><br>
+
+                <label for="email">Email :-</label>
+                <input type="email"  name="email"><br>
+                <span id="invalidemail"></span><br>
+                <span id="validemail"></span><br>
+
+                <label for="number">Phone Number :-</label>
+                <input type="number" name="number"><br>
+                <span id="invalidphone"></span><br>
+                <span id="validphone"></span><br>
+
+                <label for="gender">Gender :-</label><br>
+               
+                <input type="radio" name="gender" >
+                <label>Male</label>
+
+                
+                <input type="radio" name="gender">
+                <label>Female</label>
+                <span id="validgender"></span><br>
+                <span id="invalidgender"></span><br>
+
+                <select name="branch" id="branch">
+                    <option value="Please select branch">Please select branch</option>
+                    <option value="science">Science</option>
+                     <option value="art">Art</option>
+                     <option value="commerce">Commerce</option>
+                </select><br>
+                <span id="validbranch"></span><br>
+                <span id="invalidbranch"></span><br>
+
+                <input type="submit" name="submit" value="submit"><br>
+
             </form>
+               
+           
                 <script>
                  function validation(){
-                     console.log("validation")
-                     var Auser=document.forms["regform"]["fname"].value
-                     firstnamevalidation(Auser)
-                     var Buser=document.forms["regform"]["lname"].value
-                     var Cuser=document.forms["regform"]["email"].value
-                     return false
+                    console.log("validation")
+                     var auser=document.forms["regform"]["fname"].value
+                     firstnamevalidation(auser)
+                     var buser=document.forms["regform"]["lname"].value
+                     lastnamevalidation(buser)
+                     var cuser=document.forms["regform"]["email"].value
+                     emailvalidation(cuser)
+                     var duser=document.forms["regform"]["number"].value
+                     phonenumbervalidation(duser)
+                    //  var euser=document.forms["regform"]["radio"].value
+                     radiobuttonvalidation()
+                     optionvalidation()
+                    //  console.log(auser)
+                    return false
+              
                  }
-                     function firstnamevalidation(Auser){
+                     function firstnamevalidation(auser){ 
+                        
+                         console.log("inside firstname")
                         var regex = /^[A-Za-z]+$/;
                      var regex1=/^[0-9]+$/;
-                        if( Auser == ""){
-                            document.getElementById("spanone").innerHTML="Please enter your valid name"
-                            return false
+                        if( auser == ""){
+                            document.getElementById("invalidfirstname").innerHTML="**Please enter your valid firstname**"
+                            
+                        }
+                       else if(regex1.test(auser)==true){
+                            document.getElementById("invalidfirstname").innerHTML="**Please enter only alphabets**"
+                        }
+                        else{ document.getElementById("validfirstname").innerHTML="your name is valid"
+
                         }
                      }
-                                                         
+
+                        function lastnamevalidation(buser){
+                            var regex2 = /^[A-Za-z]+$/;
+                     var regex3=/^[0-9]+$/;
+                          if(buser ==""){
+                              document.getElementById("invalidlastname").innerHTML="**Please enter your valid lastname**"    
+                          }
+                          else if(regex3.test(buser)==true){
+                            document.getElementById("invalidlastname").innerHTML="**Please enter only alphabets**"
+                        }
+                        else{ document.getElementById("validlastname").innerHTML="Your name is valid"
+
+                       }
+                     }
+                     function emailvalidation(cuser){
+                        var regex4=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                           if(cuser ==""){
+                              document.getElementById("invalidemail").innerHTML="**Please enter your valid E-maild**"    
+                              return false
+                          }
+
+                        if(regex4.test(cuser)==true){
+                            document.getElementById("invalidemail").innerHTML=""
+                          
+                        }
+                        else{ document.getElementById("validemail").innerHTML="Your email is valid"
+
+                           }
+                     }
+
+                     function phonenumbervalidation(duser){
+                         var regex5= /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}/;
+                         if(duser ==""){
+                            document.getElementById("invalidphone").innerHTML="**Please enter your valid phone number**"   
+                         }
+                         else{ document.getElementById("validphone").innerHTML="Your number is valid"
+
+                            }
+                     }
+                     function radiobuttonvalidation(){
+                        var genders = document.getElementsByName("gender");
+                           if (genders[0].checked == true) {
+                            document.getElementById("validgender").innerHTML="Your gender is male"
+                                 }
+                           else if (genders[1].checked == true) {
+                            document.getElementById("validgender").innerHTML="Your gender is female "
+                                }       
+                          else {
+                            document.getElementById("invalidgender").innerHTML="**Please enter your valid gender**"
+                            
+                            
+                     }
+                     }
+                     function optionvalidation(){
+                        var branches = document.getElementById("branch");
+                        var selectedBranch= branches.options[branches.selectedIndex].value  
+                        if(selectedBranch == "Please select branch"){
+                            document.getElementById("invalidbranch").innerHTML="**Please select a branch**"
+                        }else{
+                        document.getElementById("validbranch").innerHTML="Your branch is  "+ selectedBranch
+                        }
+    
+                     }               
                 </script>
             
         </body>

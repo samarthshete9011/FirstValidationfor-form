@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="radio" name="gender" value="m"/>Male
+        <br />
+        <input type="radio" name="gender" value="f"/>Female
+        <br />
+        <div id="msg"></div>
+        <input type="submit" value="send>" onclick="return send();" />
+    </form>
+    <script>
+        function send() {
+                var genders = document.getElementsByName("gender");
+                if (genders[0].checked == true) {
+                    alert("Your gender is male");
+                } else if (genders[1].checked == true) {
+                    alert("Your gender is female");
+                } else {
+                    // no checked
+                    var msg = '<span style="color:red;">You must select your gender!</span><br /><br />';
+                    document.getElementById('msg').innerHTML = msg;
+                    return false;
+                }
+                return true;
+            }
+    </script>
+</body>
+</html>

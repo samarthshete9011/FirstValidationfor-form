@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Leap Year.</title>
+
+<body>
+    <input type="number" name="year" id="year">
+    <input type="submit" name="submit" onclick="leapyear()">
+    <p id="out"></p>
+    <script>
+        
+        function leapyear() {
+            var year = document.getElementById("year").value;
+            if (year % 4 == 0) {
+                console.log("if")
+                console.log(year);
+                document.getElementById("out").innerHTML = "it is a leap year";
+                if (year % 100 == 0) {
+                    console.log("nested if")
+                    document.getElementById("out").innerHTML = "it is leap year"}
+            }
+            else if (year % 400 === 0){ document.getElementById("out").innerHTML = "it is comman year"}
+            else { document.getElementById("out").innerHTML = "it is a comman year year"} 
+
+        }
+
+
+    </script>
+</body>
+</head>
+
+</html>
