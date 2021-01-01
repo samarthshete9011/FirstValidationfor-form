@@ -16,6 +16,7 @@
             <form>
                 <label for="fname">First Name</label>
                 <input type="text" name="fname"><br><br>
+                <span id="one"></span>
                 <label for="lname">Last Name</label>
                 <input type="text" name="lname"><br>
                 <label for="type of stream">Type Of Stream</label><br><br>
@@ -42,33 +43,97 @@
                   </div>
             </form>
             <script>
-             function calcy() {
-                  var eng=document.getElementById("eng").value
-                  console.log(eng)  
-           var maths=document.getElementById("maths").value
-                  console.log(maths)
-                  var bio=document.getElementById("bio").value
-                   console.log(bio) 
-                   var phy=document.getElementById("phy").value
-                    console.log(phy)
-                    var it=document.getElementById("it").value
-                   console.log(it)
-                   let TotalGrades = parseFloat (eng) +parseFloat(maths) + parseFloat(bio) +parseFloat(phy) +parseFloat (it)
-                   alert(TotalGrades);
-                   document.getElementById("data3").innerHTML="Your total marks are"+TotalGrades
-                   var perctages=(TotalGrades/500)*100
-                   document.getElementById("showdata2").innerHTML="Your total marks are"+perctages
-                    alert(perctages);
-                   if(perctages<= 100 && perctages>=80){
-                     document.getElementById ("showdata").innerHTML= "Your TotalGrades is A";
-                    } else if (perctages<=79 && perctages>=60){
-                     document.getElementById ("showdata").innerHTML= "Your TotalGrades is B";
-                    } else if (perctages<=59 && perctages>=40){
-                     document.getElementById ("showdata").innerHTML= "Your TotalGrades is C";
-                    }else{
-                     document.getElementById ("showdata").innerHTML= "Your TotalGrades is F";
+                    function validation(){
+                    console.log("validation")
+                     var auser=document.forms["regform"]["fname"].value
+                     firstnamevalidation(auser)}
+                     
+
+                     function firstnamevalidation(auser){ 
+                        
+                        console.log("inside firstname")
+                       var regex = /^[A-Za-z]+$/;
+                    var regex1=/^[0-9]+$/;
+                       if( auser == ""){
+                           document.getElementById("invalidfirstname").innerHTML="**Please enter your valid firstname**"
+                           
+                       }
+                      else if(regex1.test(auser)==true){
+                           document.getElementById("invalidfirstname").innerHTML="**Please enter only alphabets**"
+                       }
+                       else{ document.getElementById("validfirstname").innerHTML="your name is valid"
+
+                       }
                     }
-              }   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //                var regex = /^[A-Za-z]+$/;
+        //              var regex1=/^[0-9]+$/;
+        //                 if( auser == ""){
+        //                     document.getElementById("one").innerHTML="**Please enter your valid firstname**"
+                            
+        //                 }
+        //                else if(regex1.test(auser)==true){
+        //                     document.getElementById("invalidfirstname").innerHTML="**Please enter only alphabets**"
+        //                 }
+        //                 else{ document.getElementById("validfirstname").innerHTML="your name is valid"  
+
+        //                 }
+        //           var eng=document.getElementById("eng").value
+        //           console.log(eng)  
+        //    var maths=document.getElementById("maths").value
+        //           console.log(maths)
+        //           var bio=document.getElementById("bio").value
+        //            console.log(bio) 
+        //            var phy=document.getElementById("phy").value
+        //             console.log(phy)
+        //             var it=document.getElementById("it").value
+        //            console.log(it)
+        //            let TotalGrades = parseFloat (eng) +parseFloat(maths) + parseFloat(bio) +parseFloat(phy) +parseFloat (it)
+        //            alert(TotalGrades);
+        //            document.getElementById("data3").innerHTML="Your total marks are"+TotalGrades
+        //            var perctages=(TotalGrades/500)*100
+        //            document.getElementById("showdata2").innerHTML="Your total marks are"+perctages
+        //             alert(perctages);
+        //            if(perctages<= 100 && perctages>=80){
+        //              document.getElementById ("showdata").innerHTML= "Your TotalGrades is A";
+        //             } else if (perctages<=79 && perctages>=60){
+        //              document.getElementById ("showdata").innerHTML= "Your TotalGrades is B";
+        //             } else if (perctages<=59 && perctages>=40){
+        //              document.getElementById ("showdata").innerHTML= "Your TotalGrades is C";
+        //             }else{
+        //              document.getElementById ("showdata").innerHTML= "Your TotalGrades is F";
+        //             }
+        //       }         function calcy() {
+
             </script>
         </body>
     </head>
