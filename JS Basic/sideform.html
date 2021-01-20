@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title> Websit Form</title>
+
+<body>
+    <div class="container">
+
+        <form onsubmit="return validation()">
+
+            <label for="First Name" class="form-label"> First Name :- </label>
+            <input type="text" class="form-control" name="fname" id="user"><br><br>
+            <span id="one" class="text-danger font-weight-bold"></span><br><br>
+
+            <label for="Last Name" class="form-label">Last Name :-</label>
+            <input type="text" class="form-control" name="lname" id="userone"><br><br>
+            <span id="two" class="text-danger font-weight-bold"></span><br><br>
+
+            <label for="E-mail" class="form-label">E-mail</label>
+            <input type="email" class="form-control" name="email" id="usertwo"><br><br>
+            <span id="three" class="text-danger font-weight-bold"></span><br><br>
+
+            <label for="number" class="form-label"> Phone Number :-</label>
+            <input type="text" class="form-control" name="phonenumber" id="userthree"><br><br>
+            <span id="four" class="text-danger font-weight-bold"></span><br><br>
+
+            <input type="submit" class="form-control btn btn-outline-danger" name="submit" value="sumit">
+
+    </div>
+    </form>
+
+    <script>
+
+        function validation() {
+            var auser = document.getElementById("user").value;
+            var buser = document.getElementById("userone").value;
+            var cuser = document.getElementById("usertwo").value;
+            var duser = document.getElementById("userthree").value;
+
+            if (auser == "") {
+                document.getElementById("one").innerHTML = "**Please Enter Your Valid Name**";
+            } else if ((auser.length <= 2) || (auser.length >= 20)) {
+                document.getElementById("one").innerHTML = "**Please  Your Length must between 2 to 20**";
+            } else if (!isNaN(auser)) {
+                document.getElementById("one").innerHTML = "**Please Enter Characters Only**";
+            }
+
+
+
+
+
+            if (buser == "") {
+                document.getElementById("two").innerHTML = "**Please Enter Your Valid Name**";
+            }
+            else if ((buser.length <= 2) || (buser.length >= 20)) {
+                document.getElementById("two").innerHTML = "**Please  Your Length must between 2 to 20**";
+            } else if (!isNaN(auser)) {
+                document.getElementById("two").innerHTML = "**Please Enter Characters Only**";
+            }
+
+
+
+
+            if (cuser == "") {
+                document.getElementById("three").innerHTML = "**Please Enter Your Valid E-mail**";
+
+            }
+
+
+
+
+
+
+            if (duser == "") {
+                document.getElementById("four").innerHTML = "**Please Enter Your Valid Phone Number**";
+
+            } else if (isNaN(duser)) {
+                document.getElementById("four").innerHTML = "**Please Enter Digits Only**";
+            }
+
+
+
+
+
+            return false;
+        }
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</head>
+
+</html>

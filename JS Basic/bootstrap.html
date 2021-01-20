@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: whitesmoke;
+            color: white;
+            margin-top: 10%;
+        }
+
+        .form-area {
+            height: 500px;
+            width: 350px;
+            margin-top: auto;
+            margin-bottom: auto;
+            background: darkorchid;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+
+        }
+
+
+
+        .form-area h2 {
+            color: snow;
+            font-family: lato;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .form_container {
+            margin-top: 35px;
+        }
+
+        .login_btn {
+            width: 100%;
+            background: rgb(144, 211, 43);
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container h-100">
+        <div class="container h-100">
+            <div class="d-flex justify-content-center h-100">
+                <div class="form-area">
+                    <div class="d-flex justify-content-center">
+                        <h2>
+                            Login Form</h2>
+
+                    </div>
+                    <div class="d-flex justify-content-center form_container">
+                        <form action="" class="was-validated">
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                                <input class="form-control input_user" name="fname" id="fname" placeholder="username" type="text"
+                                    value="" required><br>
+                                    
+                            </div>
+                            <span id="one" class="text-danger font-weight-bold"></span>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                </div>
+                                <input class="form-control input_pass" name="Password" id="pass" placeholder="password" type="password"
+                                    value="" required>
+
+                            </div>
+                            <span id="two" class="text-danger font-weight-bold"></span>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                                </div>
+                                <input class="form-control input_pass " name="number" id="num" placeholder="Number" type="text"
+                                    value="" required>
+                            </div>
+                            <span id="four" class="text-danger font-weight-bold"></span>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-envelope"
+                                            aria-hidden="true"></i></span>
+                                </div>
+                                <input class="form-control input_pass " name="email" id="email" placeholder="name@example.com"
+                                    type="email" value="" required>
+                            </div>
+                            <span id="three" class="text-danger font-weight-bold"></span>
+                    </div>
+
+
+                    <div class="d-flex justify-content-center mt-5 login_container">
+                        <button onclick="validation()" class="btn login_btn" name="button" type="button">Login</button>
+
+                    </div>
+                </div>
+            </div>
+            </form>
+            <script>
+
+                function validation() {
+                  console.log("validation")
+                  var auser = document.getElementById("fname").value;
+                  var buser = document.getElementById("pass").value;
+                  var cuser = document.getElementById("num").value;
+                  var duser = document.getElementById("email").value;
+            
+                  if (auser == "") {
+                    document.getElementById("one").innerHTML = "**Please Enter Your Valid Name**";
+                  } else if ((auser.length <= 4) || (auser.length >= 15)) {
+                    document.getElementById("one").innerHTML = "**Please  Your Length must between 2 to 20**";
+                  } else if (!isNaN(auser)) {
+                    document.getElementById("one").innerHTML = "**Please Enter Characters Only**";
+            
+            
+                  }
+            
+            
+            
+              
+            
+                  if (buser == "") {
+                    document.getElementById("two").innerHTML = "**Please Enter Your Valid Name**";
+                  } else if ((buser.length <= 4) || (buser.length >= 15)) {
+                    document.getElementById("two").innerHTML = "**Please  Your Length must between 2 to 20**";
+                  } else if (!isNaN(buser)) {
+                    document.getElementById("two").innerHTML = "**Please Enter Characters Only**";
+                  }
+            
+            
+            
+            
+                  if (cuser == "") {
+                    document.getElementById("three").innerHTML = "**Please Enter Your Valid E-mail**";
+            
+                  } else if (cuser.indexOf('@') <= 0) {
+                    document.getElementById("three").innerHTML = "** Your Position is not Valid E-mail**";
+                  }
+            
+            
+            
+            
+            
+            
+            
+                  if (duser == "") {
+                    document.getElementById("four").innerHTML = "**Please Enter Your Valid Phone Number**";
+            
+                  } else if (isNaN(duser)) {
+                    document.getElementById("four").innerHTML = "**Please Enter Digits Only**";
+                  }
+            
+                }
+                  //return false;
+            
+              </script>
+
+        </div>
+
+    </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
